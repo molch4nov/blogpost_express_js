@@ -22,7 +22,6 @@ This documentation provides details on the endpoints available in the Blog API.
 
 For authenticated requests, include the following header:
 
-```
 
 Replace `<JWT_TOKEN>` with the valid JWT token obtained after successful authentication.
 
