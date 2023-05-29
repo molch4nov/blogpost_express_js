@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/blogpost_express_js.iml" filepath="$PROJECT_DIR$/.idea/blogpost_express_js.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/jwt.iml" filepath="$PROJECT_DIR$/.idea/jwt.iml" />
     </modules>
   </component>
 </project>

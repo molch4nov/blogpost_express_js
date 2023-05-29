@@ -1,12 +1,18 @@
-const express = require('express')
-const app = express()
-const port = 3000
-const db = require('./db.js')
+const express = require('express');
+const dotenv = require('dotenv');
+const authRoutes = require('./auth');
+const blogRoutes = require('./blog');
 
+dotenv.config();
 
+const app = express();
+const PORT = process.env.PORT || 3000;
 
-app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`)
-    db.authenticate()
-        .catch(error => console.error(error))
-  })
+app.use(express.json());
+
+app.use('/auth', authRoutes);
+app.use('/api', blogRoutes);
+
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+});

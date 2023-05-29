@@ -1,13 +1,14 @@
-const Sequilize = require('sequelize')
+const { Pool } = require('pg');
+const dotenv = require('dotenv');
 
-module.exports = new Sequilize('proglib', 'postgres', 'secret', {
-    host: 'localhost',
-    dialect: 'postgres',
-    operatorsAliases: 0,
-    pool: {
-        max: 5,
-        min: 0,
-        acquire: 3000,
-        idle: 10000
-    }
-})
+dotenv.config();
+
+const pool = new Pool({
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT,
+    database: process.env.DB_NAME,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+});
+
+module.exports = pool;
