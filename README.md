@@ -47,8 +47,8 @@ Example response for an error:
   "error": "Unauthorized"
 }
 ```
-Examples
-Create a Blog Post
+## Examples
+### Create a Blog Post
 Request:
 
 Method: POST
@@ -76,7 +76,7 @@ Body:
   }
 }
 ```
-Update a Blog Post
+## Update a Blog Post
 Request:
 
 Method: PUT
@@ -99,7 +99,7 @@ Body:
   "message": "Blog post updated successfully"
 }
 ```
-Delete a Blog Post
+##Delete a Blog Post
 Request:
 
 Method: DELETE
