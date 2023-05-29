@@ -1,9 +1,14 @@
-create TABLE blogpost(
+create TABLE blog_posts(
     id SERIAL PRIMARY KEY,
     message VARCHAR(255),
-    date DATE,
-    user_id INTEGER,
-    FOREIGN KEY (user_id) REFERENCES users (id)
+    date timestamp NOT NULL DEFAULT NOW(),
+    author_id INTEGER,
+    FOREIGN KEY (author_id) REFERENCES users (id)
 );
 
+create TABLE users(
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(255),
+    password VARCHAR(255)
+);
 

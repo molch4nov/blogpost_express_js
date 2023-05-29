@@ -3,12 +3,15 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const pool = require('./db');
 const authenticateToken = require('./authenticateToken');
+var bodyParser = require('body-parser');
 
 const router = express.Router();
+var jsonParser = bodyParser.json();
 
-router.post('/blog', authenticateToken, async (req, res) => {
+router.post('/blog',bodyParser.json(), authenticateToken, async (req, res) => {
     try {
-        const { message } = req.body;
+        const message = req.body.message;
+        console.log(message);
         const userId = req.user.userId;
 
         const { rows } = await pool.query(
@@ -33,7 +36,7 @@ router.get('/blog', async (req, res) => {
 
         // Получение записей блога с пагинацией
         const { rows } = await pool.query(
-            'SELECT * FROM blog_posts ORDER BY created_at DESC LIMIT $1 OFFSET $2',
+            'SELECT * FROM blog_posts ORDER BY date DESC LIMIT $1 OFFSET $2',
             [limit, offset]
         );
 

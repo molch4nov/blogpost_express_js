@@ -10,7 +10,7 @@ const router = express.Router();
 router.post('/register', async (req, res) => {
     try {
         const { username, password } = req.body;
-
+        console.log(req.body.username);
         // Хеширование пароля
         const hashedPassword = await bcrypt.hash(password, 10);
 
@@ -40,7 +40,7 @@ router.post('/login', async (req, res) => {
 
         // Проверка наличия пользователя в базе данных
         if (rows.length === 0) {
-            return res.status(401).json({ error: 'Authentication failed' });
+            return res.status(401).json({ error: 'Authentication failed from rows length' });
         }
 
         const user = rows[0];
