@@ -99,7 +99,7 @@ Body:
   "message": "Blog post updated successfully"
 }
 ```
-##Delete a Blog Post
+## Delete a Blog Post
 Request:
 
 Method: DELETE
