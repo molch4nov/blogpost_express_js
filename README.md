@@ -32,7 +32,7 @@ The API responses are returned in JSON format.
 
 Example response for a successful request:
 
-```json
+```
 {
   "data": {
     "id": 1,
@@ -40,5 +40,79 @@ Example response for a successful request:
     "author_id": 1,
     "created_at": "2023-05-28T12:34:56.789Z"
   }
+}
+```
+Example response for an error:
+```
+{
+  "error": "Unauthorized"
+}
+```
+Examples
+Create a Blog Post
+Request:
+
+Method: POST
+URL: /api/blog
+Headers:
+Content-Type: application/json
+Authorization: Bearer <JWT_TOKEN>
+Body:
+```
+{
+  "message": "Example blog post"
+}
+```
+Response:
+
+Status: 200 OK
+Body:
+```
+{
+  "data": {
+    "id": 1,
+    "message": "Example blog post",
+    "author_id": 1,
+    "created_at": "2023-05-28T12:34:56.789Z"
+  }
+}
+```
+Update a Blog Post
+Request:
+
+Method: PUT
+URL: /api/blog/{postId}
+Headers:
+Content-Type: application/json
+Authorization: Bearer <JWT_TOKEN>
+Body:
+```
+{
+  "message": "Updated blog post"
+}
+```
+Response:
+
+Status: 200 OK
+Body:
+```
+{
+  "message": "Blog post updated successfully"
+}
+```
+Delete a Blog Post
+Request:
+
+Method: DELETE
+URL: /api/blog/{postId}
+Headers:
+Authorization: Bearer <JWT_TOKEN>
+Response:
+
+Status: 200 OK
+Body:
+```
+{
+  "message": "Blog post deleted successfully"
 }
 ```
